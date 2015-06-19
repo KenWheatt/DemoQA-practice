@@ -3,6 +3,7 @@ package abstractPackage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
 
 public class AbstractPage {
 	
@@ -15,7 +16,7 @@ public class AbstractPage {
 	 
 	public  WebDriver openChromeDriver() 
 	 {
-		  System.setProperty("webdriver.chrome.driver", "C:\\dev\\tools\\chromedriver.exe");
+		  System.setProperty("webdriver.chrome.driver", "/Users/kenwheatt/Desktop/dev/tools/chromedriver");
 		  WebDriver driver = new ChromeDriver();
 		  return driver;
 	 }
@@ -34,5 +35,15 @@ public class AbstractPage {
 	 {
 		 String URL = driver.getCurrentUrl();
 		 return URL;
+	 }
+	 public void type(By locator,String input)
+	 {
+		 driver.findElement(locator).sendKeys(
+				 input);
+	 }
+	 public void selectDropdown(By locator,String value)
+	 {
+		 Select selectDrop = new Select(driver.findElement(locator));
+			selectDrop.selectByValue(value);
 	 }
 }

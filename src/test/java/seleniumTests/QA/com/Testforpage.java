@@ -10,7 +10,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import pageObjects.RegistrationPage;
@@ -33,44 +32,37 @@ public class Testforpage {
 	@Test
 	public void register() {
 		onRegistrationPage.clickOn(onRegistrationPage.REGISTRATION_LINK);
-		assertEquals(onRegistrationPage.getURL(),
-				"http://demoqa.com/registration/");
+		assertEquals(onRegistrationPage.getURL(),"http://demoqa.com/registration/");
 		// Write first name**
-		driver.findElement(onRegistrationPage.FIRST_NAME_INPUT).sendKeys(
-				"User");
+		onRegistrationPage.type(onRegistrationPage.FIRST_NAME_INPUT, "User");
 		// Write last name
-		driver.findElement(onRegistrationPage.LAST_NAME_INPUT).sendKeys(
-				"Dev");
+		onRegistrationPage.type(onRegistrationPage.LAST_NAME_INPUT, "Dev");
 		// click marrital status
-		driver.findElement(By.cssSelector("input[value='single']")).click();
+		onRegistrationPage.clickOn(onRegistrationPage.MARITAL_STATUS_BUTTON); 
 		// click hobby
-		driver.findElement(By.cssSelector("input[value='dance']")).click();
+		onRegistrationPage.clickOn(onRegistrationPage.HOBBY_BUTTON);
 		// select dropdown for country
-		Select selectCountry = new Select(driver.findElement(By.id("dropdown_7")));
-		selectCountry.selectByValue("United States");
+		onRegistrationPage.selectDropdown(onRegistrationPage.COUNTRY, "United States");
 		// select  dropdowns to enter month of birth
-		Select selectMonth = new Select(driver.findElement(By.id("mm_date_8")));
-		selectMonth.selectByValue("5");
+		onRegistrationPage.selectDropdown(onRegistrationPage.MONTH, "5");
 		// select dropdown to enter day of birth 
-		Select selectDay = new Select(driver.findElement(By.id("dd_date_8")));
-		selectDay.selectByValue("25");
+		onRegistrationPage.selectDropdown(onRegistrationPage.DAY, "25");
 		// select dropdown to enter year of birth
-		Select selectYear = new Select(driver.findElement(By.id("yy_date_8")));
-		selectYear.selectByValue("1989");
+		onRegistrationPage.selectDropdown(onRegistrationPage.YEAR, "1989");
 		// Write phone number
-		driver.findElement(By.id("phone_9")).sendKeys("5035551285");
+		onRegistrationPage.type(onRegistrationPage.PHONE_NUMBER, "5035551285");
 		// Write Username
-		driver.findElement(By.id("username")).sendKeys("Dev1");
+		onRegistrationPage.type(onRegistrationPage.USER_NAME, "Dev1");
 		// Enter Email
-		driver.findElement(By.id("email_1")).sendKeys("BRRRRATTT@catalystitservices.com");
+		onRegistrationPage.type(onRegistrationPage.EMAIL, "BRRRRATTT@catalystitservices.com");
 		// Write about yourself
-		driver.findElement(By.id("profile_pic_10")).sendKeys("C:\\Users\\kwheatt\\Desktop\\WORK BREH\\QA bidness.jpg");
+//		onRegistrationPage.type(onRegistrationPage.PROFILE_PIC, "file-path-to-pic");
 		//write a about yourself
-		driver.findElement(By.id("description")).sendKeys("All the Stuffs you needs to know breh!");
+		onRegistrationPage.type(onRegistrationPage.DESCRIPTION, "All the Stuffs you needs to know breh!");
 		// Enter password
-		driver.findElement(By.id("password_2")).sendKeys("Workforfood33@!");
+		onRegistrationPage.type(onRegistrationPage.PASSWORD, "Workforfood33@!");
 		// enter password
-		driver.findElement(By.id("confirm_password_password_2")).sendKeys("Workforfood33@!");
+		onRegistrationPage.type(onRegistrationPage.CONFIRM_PASSWORD, "Workforfood33@!");
 		// check the passwords are the same
 		  String password = driver.findElement(By.id("password_2")).getAttribute("value");
 		  String password_2 = driver.findElement(By.id("confirm_password_password_2")).getAttribute("value");
