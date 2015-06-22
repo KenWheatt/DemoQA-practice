@@ -1,18 +1,10 @@
 package pageObjects;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
-import abstractPackage.AbstractPage;
-
-public class QAPage extends AbstractPage {
+public class QAPage extends RegistrationPage {
 	
-	WebDriver driver;
 		
-	public QAPage (WebDriver driver)
-		{
-			super(driver);
-		}
 		public final By TOOLS_QA_LINK = By.className("site-anchor");
 		public final By REGISTRATION_LINK = By.linkText("Registration");
 		public final By NAVBAR_HOME_LINK = By.id("menu-item-38");
