@@ -9,14 +9,12 @@ import pageObjects.QAPage;
 
 public class AbstractPage extends QAPage{
 	
-	 protected WebDriver driver;
-	
-	 public  AbstractPage(WebDriver driver)
+	protected WebDriver driver;
+
+	 public  AbstractPage()
 	{
-		super();
 	}
-	 
-	public  WebDriver openChromeDriver() 
+	 public  WebDriver openChromeDriver() 
 	 {
 		  System.setProperty("webdriver.chrome.driver", "/Users/kenwheatt/Desktop/dev/tools/chromedriver");
 		  WebDriver driver = new ChromeDriver();

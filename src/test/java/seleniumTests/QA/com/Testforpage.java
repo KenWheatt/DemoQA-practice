@@ -6,7 +6,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -15,29 +14,21 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import abstractPackage.AbstractPage;
 
 public class Testforpage extends AbstractPage {
-	void AbstractPage(){}
 	
-	public Testforpage(WebDriver driver) {
-		super(driver);
-		// TODO Auto-generated constructor stub
+
+	public Testforpage() {
 	}
-
-	private WebDriver driver;
-
-	// private RegistrationPage onRegistrationPage;
 
 	@Before
 	public void SetUp() {
-		AbstractPage startUp = new AbstractPage(driver);
-		driver = startUp.openChromeDriver();
+		driver = openChromeDriver();
 		openHomePage(driver);
 	}
 
 	@Test
 	public void register() {
 		clickOn(REGISTRATION_LINK);
-		assertEquals(getURL(),
-				"http://demoqa.com/registration/");
+		assertEquals(getURL(),"http://demoqa.com/registration/");
 		// Write first name**
 		type(FIRST_NAME_INPUT, "User");
 		// Write last name
@@ -47,8 +38,7 @@ public class Testforpage extends AbstractPage {
 		// click hobby
 		clickOn(HOBBY_BUTTON);
 		// select dropdown for country
-		selectDropdown(COUNTRY,
-				"United States");
+		selectDropdown(COUNTRY,"United States");
 		// select dropdowns to enter month of birth
 		selectDropdown(MONTH, "5");
 		// select dropdown to enter day of birth
@@ -60,37 +50,29 @@ public class Testforpage extends AbstractPage {
 		// Write Username
 		type(USER_NAME, "Dev1");
 		// Enter Email
-		type(EMAIL,
-				"BRRRRATTT@catalystitservices.com");
+		type(EMAIL,"BRRRRATTT@catalystitservices.com");
 		// Write about yourself
 		// type(PROFILE_PIC,
 		// "file-path-to-pic");
 		// write a about yourself
-		type(DESCRIPTION,
-				"All the Stuffs you needs to know breh!");
+		type(DESCRIPTION,"All the Stuffs you needs to know breh!");
 		// Enter password
 		type(PASSWORD, "Workforfood33@!");
 		// enter password
-		type(CONFIRM_PASSWORD,
-				"Workforfood33@!");
+		type(CONFIRM_PASSWORD,"Workforfood33@!");
 		// check the passwords are the same
-		String password = driver.findElement(By.id("password_2")).getAttribute(
-				"value");
-		String password_2 = driver.findElement(
-				By.id("confirm_password_password_2")).getAttribute("value");
+		String password = driver.findElement(By.id("password_2")).getAttribute("value");
+		String password_2 = driver.findElement(By.id("confirm_password_password_2")).getAttribute("value");
 		assertEquals(password, password_2);
 		// assert the
-		String passwordMeter = driver.findElement(
-				By.id("piereg_passwordStrength")).getAttribute("class");
+		String passwordMeter = driver.findElement(By.id("piereg_passwordStrength")).getAttribute("class");
 		assertEquals(passwordMeter, "piereg_pass_medium");
 		// click submit button
 		driver.findElement(By.name("pie_submit")).click();
 		// verify toaster
 		WebDriverWait wait = new WebDriverWait(driver, 3);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By
-				.className("piereg_login_error")));
-		String toastSuccessMessage = driver.findElement(
-				By.className("piereg_login_error")).getText();
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("piereg_login_error")));
+		String toastSuccessMessage = driver.findElement(By.className("piereg_login_error")).getText();
 		assertEquals(toastSuccessMessage, "Error: Username already exists");
 	}
 

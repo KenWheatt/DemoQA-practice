@@ -3,8 +3,8 @@ package pageObjects;
 import org.openqa.selenium.By;
 
 public class QAPage extends RegistrationPage {
-	
-		
+
+		public QAPage(){}
 		public final By TOOLS_QA_LINK = By.className("site-anchor");
 		public final By REGISTRATION_LINK = By.linkText("Registration");
 		public final By NAVBAR_HOME_LINK = By.id("menu-item-38");
