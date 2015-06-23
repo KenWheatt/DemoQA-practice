@@ -4,9 +4,6 @@ import org.openqa.selenium.By;
 
 public class RegistrationPage {
 	RegistrationPage(){}
-
-	
-	
 	
 	public  final By FIRST_NAME_INPUT = By.name("first_name");
 	public final By LAST_NAME_INPUT = By.name("last_name");
@@ -23,4 +20,5 @@ public class RegistrationPage {
 	public final By DESCRIPTION = By.id("description");
 	public final By PASSWORD = By.id("password_2");
 	public final By CONFIRM_PASSWORD = By.id("confirm_password_password_2");
+	public final By SUBMIT_REGISTRATION = By.name("pie_submit");
 }
