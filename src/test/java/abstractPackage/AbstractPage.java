@@ -59,7 +59,16 @@ public class AbstractPage extends QAPage {
 		}
 		return true;
 	}
-
+	
+	public void verifyPasswordStrengthBar(String input, String strength ) throws InterruptedException{
+	 goToRegistrationPage();	
+	 type(PASSWORD_INPUT, input );
+	 Thread.sleep(1000);
+	 type(CONFIRM_PASSWORD_INPUT,input);
+	 Thread.sleep(2000);
+	 String passwordMeter = driver.findElement(By.id("piereg_passwordStrength")).getAttribute("class");
+	 assertEquals(passwordMeter, strength);
+	}
 }
 
 

@@ -88,6 +88,26 @@ public class Testforpage extends AbstractPage {
 	public void isFramesandWindowsLinkClickable() {
 		assertTrue(clickThisLink(FRAMESANDWINDOWS_LINK));
 	}
+	
+	@Test
+	public void verifyPasswordVeryWeakBar() throws InterruptedException{
+		verifyPasswordStrengthBar(VERY_WEAK_PASSWORD,VERY_WEAK_STRENGTH);
+	}
+	
+	@Test
+	public void verifyPasswordWeakBar() throws InterruptedException{
+		verifyPasswordStrengthBar(WEAK_PASSWORD,WEAK_STRENGTH);
+	}
+	
+	@Test
+	public void verifyPasswordMediumBar() throws InterruptedException{
+		verifyPasswordStrengthBar(MEDIUM_PASSWORD,MEDIUM_STRENGTH);
+	}
+	
+	@Test
+	public void verifyPasswordStrongBar() throws InterruptedException{
+		verifyPasswordStrengthBar(STRONG_PASSWORD,STRONG_STRENGTH);
+	}
 
 	
 	@After
