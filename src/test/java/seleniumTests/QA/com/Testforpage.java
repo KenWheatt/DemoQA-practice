@@ -25,7 +25,7 @@ public class Testforpage extends AbstractPage {
 	}
 	@Test
 	public void verifyDraggablePageNavigation() {
-		goToPage(DRAGGABLE_LINK, "http://demoqa.com/draggable/");
+		goToPage(DRAGGABLE_LINK, DRAGGABLE_URL);
 	}
 
 	@Test
@@ -35,7 +35,7 @@ public class Testforpage extends AbstractPage {
 
 	@Test
 	public void verifyRegistrationPageNavigation() {
-		goToPage(REGISTRATION_LINK, "http://demoqa.com/registration/");
+		goToPage(REGISTRATION_LINK, REGISTRATION_URL);
 	}
 
 	@Test
@@ -45,7 +45,7 @@ public class Testforpage extends AbstractPage {
 
 	@Test
 	public void verifyDroppablePageNavigation() {
-		goToPage(DROPPABLE_LINK, "http://demoqa.com/droppable/");
+		goToPage(DROPPABLE_LINK, DROPPABLE_URL);
 	}
 
 	@Test
@@ -55,7 +55,7 @@ public class Testforpage extends AbstractPage {
 
 	@Test
 	public void verifyResizablePageNavigation() {
-		goToPage(RESIZABLE_LINK, "http://demoqa.com/resizable/");
+		goToPage(RESIZABLE_LINK, RESIZABLE_URL);
 	}
 
 	@Test
@@ -65,7 +65,7 @@ public class Testforpage extends AbstractPage {
 
 	@Test
 	public void verifySelectablePageNavigation() {
-		goToPage(SELECTABLE_LINK, "http://demoqa.com/selectable/");
+		goToPage(SELECTABLE_LINK, SELECTABLE_URL);
 	}
 
 	@Test
@@ -74,7 +74,7 @@ public class Testforpage extends AbstractPage {
 	}
 	@Test
 	public void verifySortablePageNavigation() {
-		goToPage(SORTABLE_LINK, "http://demoqa.com/sortable/");
+		goToPage(SORTABLE_LINK, SORTABLE_URL);
 	}
 
 
@@ -84,7 +84,7 @@ public class Testforpage extends AbstractPage {
 	}
 	@Test
 	public void verifyAccordionPageNavigation() {
-		goToPage(ACCORDION_LINK, "http://demoqa.com/accordion/");
+		goToPage(ACCORDION_LINK, ACCORDION_URL);
 	}
 
 	@Test
@@ -93,7 +93,7 @@ public class Testforpage extends AbstractPage {
 	}
 	@Test
 	public void verifyDatepickerPageNavigation() {
-		goToPage(DATEPICKER_LINK, "http://demoqa.com/datepicker/");
+		goToPage(DATEPICKER_LINK, DATEPICKER_URL);
 	}
 
 	@Test
