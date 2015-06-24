@@ -2,9 +2,13 @@ package abstractPackage;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
@@ -47,9 +51,9 @@ public class AbstractPage extends QAPage {
 		selectDrop.selectByValue(value);
 	}
 
-	protected void goToRegistrationPage() {
-		clickOn(REGISTRATION_LINK);
-		assertEquals(getURL(), "http://demoqa.com/registration/");
+	protected void goToPage(By locator, String url) {
+		clickOn(locator);
+		assertEquals(getURL(), url);
 	}
 
 	protected boolean clickThisLink(By link) {
@@ -59,101 +63,64 @@ public class AbstractPage extends QAPage {
 		}
 		return true;
 	}
-	
-	public void verifyPasswordStrengthBar(String input, String strength ) throws InterruptedException{
-	 goToRegistrationPage();	
-	 type(PASSWORD_INPUT, input );
-	 Thread.sleep(1000);
-	 type(CONFIRM_PASSWORD_INPUT,input);
-	 Thread.sleep(2000);
-	 String passwordMeter = driver.findElement(By.id("piereg_passwordStrength")).getAttribute("class");
-	 assertEquals(passwordMeter, strength);
+
+	public void verifyPasswordStrengthBar(String input, String strength)
+			throws InterruptedException {
+		goToPage(REGISTRATION_LINK, "http://demoqa.com/registration/");
+		type(PASSWORD_INPUT, input);
+		badWait();
+		type(CONFIRM_PASSWORD_INPUT, input);
+		badWait();
+		String passwordMeter = driver.findElement(
+				By.id("piereg_passwordStrength")).getAttribute("class");
+		assertEquals(passwordMeter, strength);
 	}
+
+	public void register() {
+		goToPage(REGISTRATION_LINK, "http://demoqa.com/registration/");
+		type(FIRST_NAME_INPUT, "User");
+		type(LAST_NAME_INPUT, "Dev");
+		clickOn(MARITAL_STATUS_BUTTON);
+		clickOn(HOBBY_BUTTON);
+		selectDropdown(COUNTRY, "United States");
+		selectDropdown(MONTH, "5");
+		selectDropdown(DAY, "25");
+		selectDropdown(YEAR, "1989");
+		type(PHONE_NUMBER, "5035551285");
+		type(USER_NAME, "Dev1");
+		type(EMAIL, "BRRRRATTT@catalystitservices.com");
+		type(DESCRIPTION, "All the Stuffs you needs to know breh!");
+		type(PASSWORD_INPUT, "Workforfood33@!");
+		type(CONFIRM_PASSWORD_INPUT, "Workforfood33@!");
+		clickOn(SUBMIT_REGISTRATION);
+		implicitWait(driver);
+		String toastSuccessMessage = driver.findElement(
+				By.className("piereg_login_error")).getText();
+		assertEquals(toastSuccessMessage, "Error: Username already exists");
+	}
+
+	public void implicitWait(WebDriver driver) {
+		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+	}
+
+	public void badWait() throws InterruptedException {
+		Thread.sleep(1000);
+	}
+
+	public void getToDraggin() {
+		goToPage(DRAGGABLE_LINK, "http://demoqa.com/draggable/");
+		Actions act = new Actions(driver);
+		WebElement draggableObject = driver.findElement(By.id("draggable"));
+		act.dragAndDropBy(draggableObject, 178, 63).perform();
+	}
+
+	public  boolean accordionWork() {
+		goToPage(ACCORDION_LINK, ACCORDION_URL);
+		clickOn(DEFAULTFUNCTIONALITYTAB);
+		clickOn(SECTION1HEADERTAB2);
+		if (((WebElement) SECTION1HEADERTAB2).isDisplayed()) {
+			return true;
+		}
+		return false;
+	}	
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//public void register() {
-	// clickOn(REGISTRATION_LINK);
-	// assertEquals(getURL(),"http://demoqa.com/registration/");
-	// // Write first name**
-	// type(FIRST_NAME_INPUT, "User");
-	// // Write last name
-	// type(LAST_NAME_INPUT, "Dev");
-	// // click marrital status
-	// clickOn(MARITAL_STATUS_BUTTON);
-	// // click hobby
-	// clickOn(HOBBY_BUTTON);
-	// // select dropdown for country
-	// selectDropdown(COUNTRY,"United States");
-	// // select dropdowns to enter month of birth
-	// selectDropdown(MONTH, "5");
-	// // select dropdown to enter day of birth
-	// selectDropdown(DAY, "25");
-	// // select dropdown to enter year of birth
-	// selectDropdown(YEAR, "1989");
-	// // Write phone number
-	// type(PHONE_NUMBER, "5035551285");
-	// // Write Username
-	// type(USER_NAME, "Dev1");
-	// // Enter Email
-	// type(EMAIL,"BRRRRATTT@catalystitservices.com");
-	// // Enter Profile pic
-	// // type(PROFILE_PIC, "file-path-to-pic");
-	// // write a about yourself
-	// type(DESCRIPTION,"All the Stuffs you needs to know breh!");
-	// // Enter password
-	// type(PASSWORD, "Workforfood33@!");
-	// // enter password
-	// type(CONFIRM_PASSWORD,"Workforfood33@!");
-	// // check the passwords are the same
-	// String password =
-	// driver.findElement(By.id("password_2")).getAttribute("value");
-	// String password_2 =
-	// driver.findElement(By.id("confirm_password_password_2")).getAttribute("value");
-	// assertEquals(password, password_2);
-	// // assert the
-	// String passwordMeter =
-	// driver.findElement(By.id("piereg_passwordStrength")).getAttribute("class");
-	// assertEquals(passwordMeter, "piereg_pass_medium");
-	// // click submit button
-	// clickOn(SUBMIT_REGISTRATION);
-	// // verify toaster
-	// WebDriverWait wait = new WebDriverWait(driver, 3);
-	// wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("piereg_login_error")));
-	// String toastSuccessMessage =
-	// driver.findElement(By.className("piereg_login_error")).getText();
-	// assertEquals(toastSuccessMessage, "Error: Username already exists");
-	// }
-
-//	@Test
-//	public void getToDraggin() {
-//		driver.findElement(By.linkText("Draggable")).click();
-//		Actions act = new Actions(driver);
-//		WebElement draggableObject = driver.findElement(By.id("draggable"));
-//		act.dragAndDropBy(draggableObject, 178, 63).perform();
-//	}

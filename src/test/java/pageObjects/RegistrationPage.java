@@ -2,7 +2,7 @@ package pageObjects;
 
 import org.openqa.selenium.By;
 
-public class RegistrationPage {
+public class RegistrationPage extends AccordionPage {
 	RegistrationPage(){}
 	
 	public  final By FIRST_NAME_INPUT = By.name("first_name");
