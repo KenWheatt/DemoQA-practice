@@ -151,8 +151,20 @@ public class Testforpage extends AbstractPage {
 	}
 	
 	@Test
-	public void accordionTest1(){
-	assertTrue(accordionWork()); 
+	public void accordionDefaultFunctionalityTestSection1(){
+	assertTrue(accordionWork(DEFAULTFUNCTIONALITYTAB,SECTION1SELECTOR,SECTION1DIV)); 
+	}
+	@Test
+	public void accordionDefaultFunctionalityTestSection2(){
+	assertTrue(accordionWork(DEFAULTFUNCTIONALITYTAB,SECTION2SELECTOR,SECTION2DIV)); 
+	}
+	@Test
+	public void accordionDefaultFunctionalityTestSection3(){
+	assertTrue(accordionWork(DEFAULTFUNCTIONALITYTAB,SECTION3SELECTOR,SECTION3DIV)); 
+	}
+	@Test
+	public void accordionDefaultFunctionalityTestSection4(){
+	assertTrue(accordionWork(DEFAULTFUNCTIONALITYTAB,SECTION4SELECTOR,SECTION4DIV)); 
 	}
 	@After
 	public void tearDown() {

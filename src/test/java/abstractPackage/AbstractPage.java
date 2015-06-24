@@ -114,11 +114,11 @@ public class AbstractPage extends QAPage {
 		act.dragAndDropBy(draggableObject, 178, 63).perform();
 	}
 
-	public  boolean accordionWork() {
+	public  boolean accordionWork(By locator, By locator2,By locator3) {
 		goToPage(ACCORDION_LINK, ACCORDION_URL);
-		clickOn(DEFAULTFUNCTIONALITYTAB);
-		clickOn(SECTION1HEADERTAB2);
-		if (((WebElement) SECTION1HEADERTAB2).isDisplayed()) {
+		clickOn(locator);
+		clickOn(locator2);
+		if (driver.findElement(locator3).isDisplayed()) {
 			return true;
 		}
 		return false;
