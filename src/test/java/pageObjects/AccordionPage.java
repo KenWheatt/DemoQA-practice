@@ -2,7 +2,7 @@ package pageObjects;
 
 import org.openqa.selenium.By;
 
-public class AccordionPage extends Droppable {
+public class AccordionPage extends DroppablePage {
 	public AccordionPage(){}
 	public final By DEFAULTFUNCTIONALITYTAB =  By.id("ui-id-1");
 	public final By CUSTOMIZEICONSTAB =  By.id("ui-id-2");

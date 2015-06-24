@@ -171,6 +171,10 @@ public class Testforpage extends AbstractPage {
 		assertTrue(dragAndDrop(DRAGGAGBLE_ITEM_DP,123,10,DROPPED_BOX)); 
 			
 		}
+	@Test
+	public void selectableTest(){
+		assertTrue(selectSelectee(SELECTABLE_SELECTEE, SELECTABLE_SELECTED));
+	}
 	
 	@After
 	public void tearDown() {

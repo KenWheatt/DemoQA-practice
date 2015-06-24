@@ -139,4 +139,10 @@ public class AbstractPage extends QAPage {
 		}
 		return false;
 		}
+	public boolean selectSelectee(By locator, By locator2){
+		goToPage(SELECTABLE_LINK, SELECTABLE_URL);
+		clickOn(locator);
+		return isElementvisible(locator2);
 	}
+}
+	
