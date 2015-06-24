@@ -166,6 +166,12 @@ public class Testforpage extends AbstractPage {
 	public void accordionDefaultFunctionalityTestSection4(){
 	assertTrue(accordionWork(DEFAULTFUNCTIONALITYTAB,SECTION4SELECTOR,SECTION4DIV)); 
 	}
+	@Test
+	public void dragAndDropTest(){
+		assertTrue(dragAndDrop(DRAGGAGBLE_ITEM_DP,123,10,DROPPED_BOX)); 
+			
+		}
+	
 	@After
 	public void tearDown() {
 		driver.close();

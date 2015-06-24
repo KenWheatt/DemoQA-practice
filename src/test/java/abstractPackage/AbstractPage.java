@@ -107,14 +107,18 @@ public class AbstractPage extends QAPage {
 		Thread.sleep(1000);
 	}
 
-	public void getToDraggin() {
-		goToPage(DRAGGABLE_LINK, "http://demoqa.com/draggable/");
+	public void dragItemTo(By locator, int num1, int num2) {
 		Actions act = new Actions(driver);
-		WebElement draggableObject = driver.findElement(By.id("draggable"));
-		act.dragAndDropBy(draggableObject, 178, 63).perform();
+		WebElement draggableObject = driver.findElement(locator);
+		act.dragAndDropBy(draggableObject, num1, num2).perform();
 	}
 
-	public  boolean accordionWork(By locator, By locator2,By locator3) {
+	public void getToDraggin() {
+		goToPage(DRAGGABLE_LINK, DRAGGABLE_URL);
+		dragItemTo(By.id("draggable"), 178, 63);
+	}
+
+	public boolean accordionWork(By locator, By locator2, By locator3) {
 		goToPage(ACCORDION_LINK, ACCORDION_URL);
 		clickOn(locator);
 		clickOn(locator2);
@@ -122,5 +126,17 @@ public class AbstractPage extends QAPage {
 			return true;
 		}
 		return false;
-	}	
-}
+	}
+
+	public boolean dragAndDrop(By locator,int num1,int num2,By locator2) {
+		goToPage(DROPPABLE_LINK, DROPPABLE_URL);
+		dragItemTo(locator, num1, num2);
+		return isElementvisible(locator2);
+	}
+	public boolean isElementvisible(By locator){
+		if(ExpectedConditions.visibilityOfElementLocated(locator) != null){
+			return true;
+		}
+		return false;
+		}
+	}
