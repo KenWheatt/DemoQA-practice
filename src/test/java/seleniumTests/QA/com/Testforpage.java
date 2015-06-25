@@ -6,9 +6,9 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import abstractPackage.AbstractPage;
+import abstractPackage.SelectableLogic;
 
-public class Testforpage extends AbstractPage {
+public class Testforpage extends SelectableLogic {
 
 	public Testforpage() {
 	}
@@ -23,6 +23,7 @@ public class Testforpage extends AbstractPage {
 	public void isDraggableLinkClickable() {
 		assertTrue(clickThisLink(DRAGGABLE_LINK));
 	}
+
 	@Test
 	public void verifyDraggablePageNavigation() {
 		goToPage(DRAGGABLE_LINK, DRAGGABLE_URL);
@@ -72,16 +73,17 @@ public class Testforpage extends AbstractPage {
 	public void isSortableLinkClickable() {
 		assertTrue(clickThisLink(SORTABLE_LINK));
 	}
+
 	@Test
 	public void verifySortablePageNavigation() {
 		goToPage(SORTABLE_LINK, SORTABLE_URL);
 	}
 
-
 	@Test
 	public void isAccordionLinkClickable() {
 		assertTrue(clickThisLink(ACCORDION_LINK));
 	}
+
 	@Test
 	public void verifyAccordionPageNavigation() {
 		goToPage(ACCORDION_LINK, ACCORDION_URL);
@@ -91,6 +93,7 @@ public class Testforpage extends AbstractPage {
 	public void isDatepickerLinkClickable() {
 		assertTrue(clickThisLink(DATEPICKER_LINK));
 	}
+
 	@Test
 	public void verifyDatepickerPageNavigation() {
 		goToPage(DATEPICKER_LINK, DATEPICKER_URL);
@@ -145,37 +148,47 @@ public class Testforpage extends AbstractPage {
 	public void verifyRegistrationModal() {
 		register();
 	}
+
 	@Test
-    public void dragImage(){
+	public void dragImage() {
 		getToDraggin();
 	}
-	
+
 	@Test
-	public void accordionDefaultFunctionalityTestSection1(){
-	assertTrue(accordionWork(DEFAULTFUNCTIONALITYTAB,SECTION1SELECTOR,SECTION1DIV)); 
+	public void accordionDefaultFunctionalityTestSection1() {
+		assertTrue(accordionWork(DEFAULTFUNCTIONALITYTAB, SECTION1SELECTOR,
+				SECTION1DIV));
 	}
+
 	@Test
-	public void accordionDefaultFunctionalityTestSection2(){
-	assertTrue(accordionWork(DEFAULTFUNCTIONALITYTAB,SECTION2SELECTOR,SECTION2DIV)); 
+	public void accordionDefaultFunctionalityTestSection2() {
+		assertTrue(accordionWork(DEFAULTFUNCTIONALITYTAB, SECTION2SELECTOR,
+				SECTION2DIV));
 	}
+
 	@Test
-	public void accordionDefaultFunctionalityTestSection3(){
-	assertTrue(accordionWork(DEFAULTFUNCTIONALITYTAB,SECTION3SELECTOR,SECTION3DIV)); 
+	public void accordionDefaultFunctionalityTestSection3() {
+		assertTrue(accordionWork(DEFAULTFUNCTIONALITYTAB, SECTION3SELECTOR,
+				SECTION3DIV));
 	}
+
 	@Test
-	public void accordionDefaultFunctionalityTestSection4(){
-	assertTrue(accordionWork(DEFAULTFUNCTIONALITYTAB,SECTION4SELECTOR,SECTION4DIV)); 
+	public void accordionDefaultFunctionalityTestSection4() {
+		assertTrue(accordionWork(DEFAULTFUNCTIONALITYTAB, SECTION4SELECTOR,
+				SECTION4DIV));
 	}
+
 	@Test
-	public void dragAndDropTest(){
-		assertTrue(dragAndDrop(DRAGGAGBLE_ITEM_DP,123,10,DROPPED_BOX)); 
-			
-		}
+	public void dragAndDropTest() {
+		assertTrue(dragAndDrop(DRAGGAGBLE_ITEM_DP, 123, 10, DROPPED_BOX));
+
+	}
+
 	@Test
-	public void selectableTest(){
+	public void selectableTest() {
 		assertTrue(selectSelectee(SELECTABLE_SELECTEE, SELECTABLE_SELECTED));
 	}
-	
+
 	@After
 	public void tearDown() {
 		driver.close();

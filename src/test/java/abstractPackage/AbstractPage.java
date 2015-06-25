@@ -64,41 +64,6 @@ public class AbstractPage extends QAPage {
 		return true;
 	}
 
-	public void verifyPasswordStrengthBar(String input, String strength)
-			throws InterruptedException {
-		goToPage(REGISTRATION_LINK, "http://demoqa.com/registration/");
-		type(PASSWORD_INPUT, input);
-		badWait();
-		type(CONFIRM_PASSWORD_INPUT, input);
-		badWait();
-		String passwordMeter = driver.findElement(
-				By.id("piereg_passwordStrength")).getAttribute("class");
-		assertEquals(passwordMeter, strength);
-	}
-
-	public void register() {
-		goToPage(REGISTRATION_LINK, "http://demoqa.com/registration/");
-		type(FIRST_NAME_INPUT, "User");
-		type(LAST_NAME_INPUT, "Dev");
-		clickOn(MARITAL_STATUS_BUTTON);
-		clickOn(HOBBY_BUTTON);
-		selectDropdown(COUNTRY, "United States");
-		selectDropdown(MONTH, "5");
-		selectDropdown(DAY, "25");
-		selectDropdown(YEAR, "1989");
-		type(PHONE_NUMBER, "5035551285");
-		type(USER_NAME, "Dev1");
-		type(EMAIL, "BRRRRATTT@catalystitservices.com");
-		type(DESCRIPTION, "All the Stuffs you needs to know breh!");
-		type(PASSWORD_INPUT, "Workforfood33@!");
-		type(CONFIRM_PASSWORD_INPUT, "Workforfood33@!");
-		clickOn(SUBMIT_REGISTRATION);
-		implicitWait(driver);
-		String toastSuccessMessage = driver.findElement(
-				By.className("piereg_login_error")).getText();
-		assertEquals(toastSuccessMessage, "Error: Username already exists");
-	}
-
 	public void implicitWait(WebDriver driver) {
 		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 	}
@@ -113,36 +78,11 @@ public class AbstractPage extends QAPage {
 		act.dragAndDropBy(draggableObject, num1, num2).perform();
 	}
 
-	public void getToDraggin() {
-		goToPage(DRAGGABLE_LINK, DRAGGABLE_URL);
-		dragItemTo(By.id("draggable"), 178, 63);
-	}
-
-	public boolean accordionWork(By locator, By locator2, By locator3) {
-		goToPage(ACCORDION_LINK, ACCORDION_URL);
-		clickOn(locator);
-		clickOn(locator2);
-		if (driver.findElement(locator3).isDisplayed()) {
+	public boolean isElementvisible(By locator) {
+		if (ExpectedConditions.visibilityOfElementLocated(locator) != null) {
 			return true;
 		}
 		return false;
 	}
 
-	public boolean dragAndDrop(By locator,int num1,int num2,By locator2) {
-		goToPage(DROPPABLE_LINK, DROPPABLE_URL);
-		dragItemTo(locator, num1, num2);
-		return isElementvisible(locator2);
-	}
-	public boolean isElementvisible(By locator){
-		if(ExpectedConditions.visibilityOfElementLocated(locator) != null){
-			return true;
-		}
-		return false;
-		}
-	public boolean selectSelectee(By locator, By locator2){
-		goToPage(SELECTABLE_LINK, SELECTABLE_URL);
-		clickOn(locator);
-		return isElementvisible(locator2);
-	}
 }
-	
