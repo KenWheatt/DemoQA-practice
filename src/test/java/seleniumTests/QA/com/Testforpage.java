@@ -6,9 +6,9 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import abstractPackage.SelectableLogic;
+import abstractPackage.AutoCompleteLogic;
 
-public class Testforpage extends SelectableLogic {
+public class Testforpage extends AutoCompleteLogic {
 
 	public Testforpage() {
 	}
@@ -187,6 +187,10 @@ public class Testforpage extends SelectableLogic {
 	@Test
 	public void selectableTest() {
 		assertTrue(selectSelectee(SELECTABLE_SELECTEE, SELECTABLE_SELECTED));
+	}
+	@Test
+	public void autocompleteTest() throws InterruptedException{
+		assertTrue(validateAutoComplet());
 	}
 
 	@After
