@@ -2,7 +2,7 @@ package pageObjects;
 
 import org.openqa.selenium.By;
 
-public class AutoCompletePage {
+public class AutoCompletePage extends FramesAndWindowsPage {
 	public AutoCompletePage(){}
 	
 	public final By AUTOCOMPLET_INPUT = By.id("tagss");

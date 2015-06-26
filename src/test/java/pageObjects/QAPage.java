@@ -37,5 +37,5 @@ public class QAPage extends RegistrationPage {
 		public final By TOOLTIP_LINK = By.linkText("Tooltip");
 		public final String TOOLTIP_URL = "http://demoqa.com/tooltip/";
 		public final By FRAMESANDWINDOWS_LINK = By.partialLinkText("Frames");
-		public final String FRAMESANDWINDOWS_URL = "http://demoqa.com/frames and windows/";
+		public final String FRAMESANDWINDOWS_URL = "http://demoqa.com/frames-and-windows/";
 }

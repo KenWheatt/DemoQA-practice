@@ -6,9 +6,9 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import abstractPackage.AutoCompleteLogic;
+import abstractPackage.FramesAndWindowsLogic;
 
-public class Testforpage extends AutoCompleteLogic {
+public class Testforpage extends FramesAndWindowsLogic {
 
 	public Testforpage() {
 	}
@@ -188,14 +188,20 @@ public class Testforpage extends AutoCompleteLogic {
 	public void selectableTest() {
 		assertTrue(selectSelectee(SELECTABLE_SELECTEE, SELECTABLE_SELECTED));
 	}
+
 	@Test
-	public void autocompleteTest() throws InterruptedException{
+	public void autocompleteTest() throws InterruptedException {
 		assertTrue(validateAutoComplet());
+	}
+
+	@Test
+	public void switchWindowsAndTestUrlTest() throws InterruptedException {
+		switchingToNewPage();
+
 	}
 
 	@After
 	public void tearDown() {
 		driver.close();
 	}
-
 }
