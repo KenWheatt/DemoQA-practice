@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 
 public class AccordionPage extends DroppablePage {
 	public AccordionPage(){}
+	public final String ACCORDION_URL = "http://demoqa.com/accordion/";
 	public final By DEFAULTFUNCTIONALITYTAB =  By.id("ui-id-1");
 	public final By CUSTOMIZEICONSTAB =  By.id("ui-id-2");
 	public final By FILLSPACETAB =  By.id("ui-id-3");

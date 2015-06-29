@@ -84,19 +84,7 @@ public class QAHomePage  {
 	
 	
 
-	// public final String REGISTRATION_URL = "http://demoqa.com/registration/";
-	// public final String DRAGGABLE_URL = "http://demoqa.com/draggable/";
-	// public final String DROPPABLE_URL = "http://demoqa.com/droppable/";
-	// public final String RESIZABLE_URL = "http://demoqa.com/resizable/";
-	// public final String SELECTABLE_URL = "http://demoqa.com/selectable/";
-	// public final String SORTABLE_URL = "http://demoqa.com/sortable/";
-	// public final String ACCORDION_URL = "http://demoqa.com/accordion/";
-	// public final String AUTOCOMPLETE_URL = "http://demoqa.com/autocomplete/";
-	// public final String DATEPICKER_URL = "http://demoqa.com/datepicker/";
-	// public final String MENU_URL = "http://demoqa.com/menu/";
-	// public final String SLIDER_URL = "http://demoqa.com/slider/";
-	// public final String TABS_URL = "http://demoqa.com/tabs/";
-	// public final String TOOLTIP_URL = "http://demoqa.com/tooltip/";
-	// public final String FRAMESANDWINDOWS_URL =
-	// "http://demoqa.com/frames-and-windows/";
+	
+
+	
 }

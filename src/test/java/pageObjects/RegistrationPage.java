@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 
 public class RegistrationPage extends AccordionPage {
 	RegistrationPage(){}
-	
+	public final String REGISTRATION_URL = "http://demoqa.com/registration/";
 	public  final By FIRST_NAME_INPUT = By.name("first_name");
 	public final By LAST_NAME_INPUT = By.name("last_name");
 	public final By MARITAL_STATUS_BUTTON = By.cssSelector("input[value='single']");
