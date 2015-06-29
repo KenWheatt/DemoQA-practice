@@ -12,9 +12,9 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
-import pageObjects.QAPage;
+import pageObjects.QAHomePage;
 
-public class AbstractPage extends QAPage {
+public class AbstractPage extends QAHomePage {
 
 	protected WebDriver driver;
 

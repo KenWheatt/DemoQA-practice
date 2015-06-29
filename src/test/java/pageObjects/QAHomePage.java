@@ -2,9 +2,9 @@ package pageObjects;
 
 import org.openqa.selenium.By;
 
-public class QAPage extends RegistrationPage {
+public class QAHomePage extends RegistrationPage {
 
-		public QAPage(){}
+		public QAHomePage(){}
 		public final By TOOLS_QA_LINK = By.className("site-anchor");
 		public final By NAVBAR_HOME_LINK = By.id("menu-item-38");
 		public final By NAVBAR_SERVICES_LINK = By.id("menu-item-155");
