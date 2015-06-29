@@ -1,13 +1,15 @@
 package pageObjects;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 
-public class QAHomePage  {
+public class HomePageObjects {
 
-	public QAHomePage() {
+	public HomePageObjects(WebDriver driver) {
 	}
-
-	public final By TOOLS_QA_LINK = By.className("site-anchor");
+	public final String HOME_PAGE = "http://demoqa.com";
+	
+	public final By TOOLS_QA_ANCHOR_LINK = By.className("site-anchor");
 
 	public final By NAVBAR_HOME_LINK = By.id("menu-item-38");
 
@@ -71,20 +73,15 @@ public class QAHomePage  {
 	public final By TOOLTIP_LINK = By.linkText("Tooltip");
 
 	public final By FRAMESANDWINDOWS_LINK = By.partialLinkText("Frames");
-	
+
 	public final By FOOTER_TOOLSQA_LINK = By.linkText("ToolsQA");
-	
+
 	public final By FOOTER_POWEREDBY_LINK = By.partialLinkText("Powered");
-	
+
 	public final By FOOTER_FACEBOOK_GLYPH = By.className("facebook");
-	
+
 	public final By FOOTER_TWITTER_GLYPH = By.className("twitter");
-	
+
 	public final By FOOTER_GPLUS_GLYPH = By.className("gplus");
-	
-	
 
-	
-
-	
 }

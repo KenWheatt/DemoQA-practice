@@ -12,15 +12,17 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
-import pageObjects.QAHomePage;
+import pageObjects.HomePageObjects;
 
-public class AbstractPage extends QAHomePage {
+public class AbstractPage  {
 
 	protected WebDriver driver;
 
 	public AbstractPage() {
 	}
 
+	HomePageObjects Home;
+	
 	public WebDriver openChromeDriver() {
 		System.setProperty("webdriver.chrome.driver",
 				"/Users/kenwheatt/Desktop/dev/tools/chromedriver");
@@ -28,8 +30,8 @@ public class AbstractPage extends QAHomePage {
 		return driver;
 	}
 
-	protected void openHomePage(WebDriver driver) {
-		driver.get("http://demoqa.com");
+	public void openPage(WebDriver driver, String Url) {
+		driver.get(Url);
 
 	}
 
@@ -56,7 +58,7 @@ public class AbstractPage extends QAHomePage {
 		assertEquals(getURL(), url);
 	}
 
-	protected boolean clickThisLink(By link) {
+	public boolean isLinkClickable(By link) {
 
 		if (ExpectedConditions.elementToBeClickable(link) == null) {
 			return false;
