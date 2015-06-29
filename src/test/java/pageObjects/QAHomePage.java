@@ -26,13 +26,13 @@ public class QAHomePage  {
 	public final By NAVBAR_CONTACT_LINK = By.id("menu-item-64");
 
 	public final By UNIQUE_IMG_LINK = By
-			.xpath("//div[h5/text()='Unique & Clean']/a");
+			.xpath("//div[h5/text()='Unique & Clean']/div/p/a/img");
 
 	public final By CUSTOMER_IMG_LINK = By
-			.xpath("//div[h5/text()='Customer Support']/a");
+			.xpath("//div[h5/text()='Customer Support']/div/p/i/a/img");
 
 	public final By FLEXIBLE_IMG_LINK = By
-			.xpath("//div[h5/text()='Very Flexible']/a");
+			.xpath("//div[h5/text()='Very Flexible']/div/i/a/img");
 
 	public final By HOMEPAGE_TAB1 = By.id("ui-id-1");
 
