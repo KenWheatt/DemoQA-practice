@@ -305,7 +305,11 @@ public class HomePageTests {
 	public void doesTab5LinkDisplayTabContent(){
 		HPL.clickTheTab(HPO.HOMEPAGE_TAB5, HPO.TAB5_CONTENT);
 	}
-
+	@Test
+	public void doesThisGlyphgoActive(){
+	  HPL.thisGlyphgoesActive(HPO.FOOTER_FACEBOOK_GLYPH);
+		
+	}
 	@After
 	public void closeShop() {
 		HPL.closeThisPage();

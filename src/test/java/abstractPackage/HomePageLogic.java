@@ -1,6 +1,8 @@
 package abstractPackage;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 public class HomePageLogic extends AbstractPage {
 	public HomePageLogic() {
@@ -27,5 +29,14 @@ public class HomePageLogic extends AbstractPage {
 			return true;
 		}
 		return false;
+	}
+	public Object thisGlyphgoesActive(By locator){
+		implicitWait();
+		Actions action = new Actions(driver);
+		WebElement we = driver.findElement(locator);
+		action.moveToElement(we);
+		action.perform();
+		Object us = we.getAttribute("title");
+		return us;
 	}
 }
