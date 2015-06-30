@@ -14,7 +14,7 @@ import org.openqa.selenium.support.ui.Select;
 
 import pageObjects.HomePageObjects;
 
-public class AbstractPage  {
+public class AbstractPage {
 
 	protected WebDriver driver;
 
@@ -22,20 +22,23 @@ public class AbstractPage  {
 	}
 
 	HomePageObjects Home;
-	
+
 	public WebDriver openChromeDriver() {
 		System.setProperty("webdriver.chrome.driver",
 				"/Users/kenwheatt/Desktop/dev/tools/chromedriver");
-		WebDriver driver = new ChromeDriver();
+		this.driver = new ChromeDriver();
 		return driver;
 	}
 
-	public void openPage(WebDriver driver, String Url) {
+	public void openPage(String Url) {
 		driver.get(Url);
 
 	}
+	public  WebDriver getCurrentDriver(){
+		return this.driver;
+	}
 
-	protected void clickOn(By locator) {
+	public void clickOn(By locator) {
 		driver.findElement(locator).click();
 	}
 
@@ -66,7 +69,7 @@ public class AbstractPage  {
 		return true;
 	}
 
-	public void implicitWait(WebDriver driver) {
+	public void implicitWait() {
 		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 	}
 
@@ -87,4 +90,7 @@ public class AbstractPage  {
 		return false;
 	}
 
+	public void closeThisPage() {
+		driver.close();
+	}
 }
