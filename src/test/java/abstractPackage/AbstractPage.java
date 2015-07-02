@@ -7,10 +7,10 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import pageObjects.HomePageObjects;
 
@@ -23,12 +23,7 @@ public class AbstractPage {
 
 	HomePageObjects Home;
 
-	public WebDriver openChromeDriver() {
-		System.setProperty("webdriver.chrome.driver",
-				"/Users/kenwheatt/Desktop/dev/tools/chromedriver");
-		this.driver = new ChromeDriver();
-		return driver;
-	}
+	
 
 	public void openPage(String Url) {
 		driver.get(Url);
@@ -71,6 +66,11 @@ public class AbstractPage {
 
 	public void implicitWait() {
 		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+	}
+	
+	public void waitForElementToBeVisible(By locator){
+		WebDriverWait wait = new WebDriverWait(driver,10);
+		 wait.until(ExpectedConditions.elementToBeClickable(locator));
 	}
 
 	public void badWait() throws InterruptedException {

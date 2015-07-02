@@ -17,7 +17,7 @@ public class HomePageTests {
 	@Before
 	public void setUp() {
 		HPL = new HomePageLogic();
-		HPL.openChromeDriver();
+//		HPL.openChromeDriver();
 		HPO = new HomePageObjects();
 		HPL.openPage(HPO.HOME_PAGE);
 
@@ -204,112 +204,136 @@ public class HomePageTests {
 	public void isTab5LinkVisible() {
 		assertTrue(HPL.isElementvisible(HPO.HOMEPAGE_TAB5));
 	}
-	
-	@Test 
-	public void doesAboutUsLinkNavigateToNewPage(){
-		assertTrue(HPL.linkgoesSomewhere(HPO.NAVBAR_ABOUT_US_LINK, HPO.HOME_PAGE));
+
+	@Test
+	public void doesAboutUsLinkNavigateToNewPage() {
+		assertTrue(HPL.linkgoesSomewhere(HPO.NAVBAR_ABOUT_US_LINK,
+				HPO.HOME_PAGE));
 	}
-	@Test 
-	public void doesBlogLinkNavigateToNewPage(){
+
+	@Test
+	public void doesBlogLinkNavigateToNewPage() {
 		assertTrue(HPL.linkgoesSomewhere(HPO.NAVBAR_BLOG_LINK, HPO.HOME_PAGE));
 	}
-	@Test 
-	public void doesContactLinkNavigateToNewPage(){
-		assertTrue(HPL.linkgoesSomewhere(HPO.NAVBAR_CONTACT_LINK, HPO.HOME_PAGE));
+
+	@Test
+	public void doesContactLinkNavigateToNewPage() {
+		assertTrue(HPL
+				.linkgoesSomewhere(HPO.NAVBAR_CONTACT_LINK, HPO.HOME_PAGE));
 	}
-	@Test 
-	public void doesServicesLinkNavigateToNewPage(){
-		assertTrue(HPL.linkgoesSomewhere(HPO.NAVBAR_SERVICES_LINK, HPO.HOME_PAGE));
+
+	@Test
+	public void doesServicesLinkNavigateToNewPage() {
+		assertTrue(HPL.linkgoesSomewhere(HPO.NAVBAR_SERVICES_LINK,
+				HPO.HOME_PAGE));
 	}
-	@Test 
-	public void doesAccordionLinkNavigateToNewPage(){
+
+	@Test
+	public void doesAccordionLinkNavigateToNewPage() {
 		assertTrue(HPL.linkgoesSomewhere(HPO.ACCORDION_LINK, HPO.HOME_PAGE));
 	}
-	@Test 
-	public void doesAutocompleteLinkNavigateToNewPage(){
+
+	@Test
+	public void doesAutocompleteLinkNavigateToNewPage() {
 		assertTrue(HPL.linkgoesSomewhere(HPO.AUTOCOMPLETE_LINK, HPO.HOME_PAGE));
 	}
-	@Test 
-	public void doesCustomerImgLinkNavigateToNewPage(){
+
+	@Test
+	public void doesCustomerImgLinkNavigateToNewPage() {
 		assertTrue(HPL.linkgoesSomewhere(HPO.CUSTOMER_IMG_LINK, HPO.HOME_PAGE));
 	}
-	@Test 
-	public void doesDatepickerLinkNavigateToNewPage(){
+
+	@Test
+	public void doesDatepickerLinkNavigateToNewPage() {
 		assertTrue(HPL.linkgoesSomewhere(HPO.DATEPICKER_LINK, HPO.HOME_PAGE));
 	}
-	@Test 
-	public void doesDraggableLinkNavigateToNewPage(){
+
+	@Test
+	public void doesDraggableLinkNavigateToNewPage() {
 		assertTrue(HPL.linkgoesSomewhere(HPO.DRAGGABLE_LINK, HPO.HOME_PAGE));
 	}
-	@Test 
-	public void doesDroppableLinkNavigateToNewPage(){
+
+	@Test
+	public void doesDroppableLinkNavigateToNewPage() {
 		assertTrue(HPL.linkgoesSomewhere(HPO.DROPPABLE_LINK, HPO.HOME_PAGE));
 	}
-	@Test 
-	public void doesFlexibleImgLinkNavigateToNewPage(){
+
+	@Test
+	public void doesFlexibleImgLinkNavigateToNewPage() {
 		assertTrue(HPL.linkgoesSomewhere(HPO.FLEXIBLE_IMG_LINK, HPO.HOME_PAGE));
 	}
-	@Test 
-	public void doesFramesAndWindowsLinkNavigateToNewPage(){
-		assertTrue(HPL.linkgoesSomewhere(HPO.FRAMESANDWINDOWS_LINK, HPO.HOME_PAGE));
+
+	@Test
+	public void doesFramesAndWindowsLinkNavigateToNewPage() {
+		assertTrue(HPL.linkgoesSomewhere(HPO.FRAMESANDWINDOWS_LINK,
+				HPO.HOME_PAGE));
 	}
-	@Test 
-	public void doesMenuLinkNavigateToNewPage(){
+
+	@Test
+	public void doesMenuLinkNavigateToNewPage() {
 		assertTrue(HPL.linkgoesSomewhere(HPO.MENU_LINK, HPO.HOME_PAGE));
 	}
-	@Test 
-	public void doesRegistrationLinkNavigateToNewPage(){
+
+	@Test
+	public void doesRegistrationLinkNavigateToNewPage() {
 		assertTrue(HPL.linkgoesSomewhere(HPO.REGISTRATION_LINK, HPO.HOME_PAGE));
 	}
-	@Test 
-	public void doesSelectableLinkNavigateToNewPage(){
+
+	@Test
+	public void doesSelectableLinkNavigateToNewPage() {
 		assertTrue(HPL.linkgoesSomewhere(HPO.SELECTABLE_LINK, HPO.HOME_PAGE));
 	}
-	@Test 
-	public void doesSliderLinkNavigateToNewPage(){
+
+	@Test
+	public void doesSliderLinkNavigateToNewPage() {
 		assertTrue(HPL.linkgoesSomewhere(HPO.SLIDER_LINK, HPO.HOME_PAGE));
 	}
-	@Test 
-	public void doesSortableLinkNavigateToNewPage(){
+
+	@Test
+	public void doesSortableLinkNavigateToNewPage() {
 		assertTrue(HPL.linkgoesSomewhere(HPO.SORTABLE_LINK, HPO.HOME_PAGE));
 	}
-	@Test 
-	public void doesTabsLinkNavigateToNewPage(){
+
+	@Test
+	public void doesTabsLinkNavigateToNewPage() {
 		assertTrue(HPL.linkgoesSomewhere(HPO.TABS_LINK, HPO.HOME_PAGE));
 	}
-	@Test 
-	public void doesTooltipLinkNavigateToNewPage(){
+
+	@Test
+	public void doesTooltipLinkNavigateToNewPage() {
 		assertTrue(HPL.linkgoesSomewhere(HPO.TOOLTIP_LINK, HPO.HOME_PAGE));
 	}
-	@Test 
-	public void doesUniqueImgLinkNavigateToNewPage(){
+
+	@Test
+	public void doesUniqueImgLinkNavigateToNewPage() {
 		assertTrue(HPL.linkgoesSomewhere(HPO.UNIQUE_IMG_LINK, HPO.HOME_PAGE));
 	}
+
 	@Test
-	public void doesTab1LinkDisplayTabContent(){
+	public void doesTab1LinkDisplayTabContent() {
 		HPL.clickTheTab(HPO.HOMEPAGE_TAB1, HPO.TAB1_CONTENT);
 	}
+
 	@Test
-	public void doesTab2LinkDisplayTabContent(){
+	public void doesTab2LinkDisplayTabContent() {
 		HPL.clickTheTab(HPO.HOMEPAGE_TAB2, HPO.TAB2_CONTENT);
 	}
+
 	@Test
-	public void doesTab3LinkDisplayTabContent(){
+	public void doesTab3LinkDisplayTabContent() {
 		HPL.clickTheTab(HPO.HOMEPAGE_TAB3, HPO.TAB3_CONTENT);
 	}
+
 	@Test
-	public void doesTab4LinkDisplayTabContent(){
+	public void doesTab4LinkDisplayTabContent() {
 		HPL.clickTheTab(HPO.HOMEPAGE_TAB4, HPO.TAB4_CONTENT);
 	}
+
 	@Test
-	public void doesTab5LinkDisplayTabContent(){
+	public void doesTab5LinkDisplayTabContent() {
 		HPL.clickTheTab(HPO.HOMEPAGE_TAB5, HPO.TAB5_CONTENT);
 	}
-	@Test
-	public void doesThisGlyphgoActive(){
-	  HPL.thisGlyphgoesActive(HPO.FOOTER_FACEBOOK_GLYPH);
-		
-	}
+
 	@After
 	public void closeShop() {
 		HPL.closeThisPage();
