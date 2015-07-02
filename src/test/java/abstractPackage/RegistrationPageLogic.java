@@ -24,7 +24,6 @@ public class RegistrationPageLogic extends AbstractPage{
 		assertEquals(passwordMeter, strength);
 	}
 	public void register() {
-		getRegistrationPage();
 		type(RPO.FIRST_NAME_INPUT, "User");
 		type(RPO.LAST_NAME_INPUT, "Dev");
 		clickOn(RPO.MARITAL_STATUS_BUTTON);

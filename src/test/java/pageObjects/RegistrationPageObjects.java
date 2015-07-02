@@ -3,7 +3,7 @@ package pageObjects;
 import org.openqa.selenium.By;
 
 public class RegistrationPageObjects {
-	RegistrationPageObjects(){}
+	public RegistrationPageObjects(){}
 	public final String REGISTRATION_URL = "http://demoqa.com/registration/";
 	public  final By FIRST_NAME_INPUT = By.name("first_name");
 	public final By LAST_NAME_INPUT = By.name("last_name");
