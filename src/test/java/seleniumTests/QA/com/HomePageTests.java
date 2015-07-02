@@ -7,6 +7,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import pageObjects.HomePageObjects;
+import util.Drivers;
 import abstractPackage.HomePageLogic;
 
 public class HomePageTests {
@@ -17,7 +18,7 @@ public class HomePageTests {
 	@Before
 	public void setUp() {
 		HPL = new HomePageLogic();
-//		HPL.openChromeDriver();
+        Drivers.openChromeDriver();
 		HPO = new HomePageObjects();
 		HPL.openPage(HPO.HOME_PAGE);
 

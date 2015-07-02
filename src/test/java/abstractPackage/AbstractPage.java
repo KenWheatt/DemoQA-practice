@@ -5,7 +5,6 @@ import static org.junit.Assert.assertEquals;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -13,10 +12,11 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import pageObjects.HomePageObjects;
+import util.Drivers;
 
 public class AbstractPage {
 
-	protected WebDriver driver;
+	
 
 	public AbstractPage() {
 	}
@@ -26,28 +26,26 @@ public class AbstractPage {
 	
 
 	public void openPage(String Url) {
-		driver.get(Url);
+		Drivers.driver.get(Url);
 
 	}
-	public  WebDriver getCurrentDriver(){
-		return this.driver;
-	}
+	
 
 	public void clickOn(By locator) {
-		driver.findElement(locator).click();
+		Drivers.driver.findElement(locator).click();
 	}
 
 	protected String getURL() {
-		String URL = driver.getCurrentUrl();
+		String URL = Drivers.driver.getCurrentUrl();
 		return URL;
 	}
 
 	protected void type(By locator, String input) {
-		driver.findElement(locator).sendKeys(input);
+		Drivers.driver.findElement(locator).sendKeys(input);
 	}
 
 	protected void selectDropdown(By locator, String value) {
-		Select selectDrop = new Select(driver.findElement(locator));
+		Select selectDrop = new Select(Drivers.driver.findElement(locator));
 		selectDrop.selectByValue(value);
 	}
 
@@ -65,11 +63,11 @@ public class AbstractPage {
 	}
 
 	public void implicitWait() {
-		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+		Drivers.driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 	}
 	
 	public void waitForElementToBeVisible(By locator){
-		WebDriverWait wait = new WebDriverWait(driver,10);
+		WebDriverWait wait = new WebDriverWait(Drivers.driver,10);
 		 wait.until(ExpectedConditions.elementToBeClickable(locator));
 	}
 
@@ -78,8 +76,8 @@ public class AbstractPage {
 	}
 
 	public void dragItemTo(By locator, int num1, int num2) {
-		Actions act = new Actions(driver);
-		WebElement draggableObject = driver.findElement(locator);
+		Actions act = new Actions(Drivers.driver);
+		WebElement draggableObject = Drivers.driver.findElement(locator);
 		act.dragAndDropBy(draggableObject, num1, num2).perform();
 	}
 
@@ -91,6 +89,6 @@ public class AbstractPage {
 	}
 
 	public void closeThisPage() {
-		driver.close();
+		Drivers.driver.close();
 	}
 }

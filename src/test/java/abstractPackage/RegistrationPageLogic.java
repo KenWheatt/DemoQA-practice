@@ -1,9 +1,11 @@
 package abstractPackage;
 
 import org.openqa.selenium.By;
+
 import static org.junit.Assert.*;
 import pageObjects.HomePageObjects;
 import pageObjects.RegistrationPageObjects;
+import util.Drivers;
 
 public class RegistrationPageLogic extends AbstractPage{
 	public RegistrationPageLogic(){}
@@ -18,7 +20,7 @@ public class RegistrationPageLogic extends AbstractPage{
 		badWait();
 		type(RPO.CONFIRM_PASSWORD_INPUT, input);
 		badWait();
-		String passwordMeter = driver.findElement(By.id("piereg_passwordStrength")).getAttribute("class");
+		String passwordMeter = Drivers.driver.findElement(By.id("piereg_passwordStrength")).getAttribute("class");
 		assertEquals(passwordMeter, strength);
 	}
 	public void register() {
@@ -38,7 +40,7 @@ public class RegistrationPageLogic extends AbstractPage{
 		type(RPO.CONFIRM_PASSWORD_INPUT, "Workforfood33@!");
 	    clickOn(RPO.SUBMIT_REGISTRATION);
 		implicitWait();
-		String toastSuccessMessage = driver.findElement( By.className("piereg_login_error")).getText();
+		String toastSuccessMessage = Drivers.driver.findElement( By.className("piereg_login_error")).getText();
 		assertEquals(toastSuccessMessage, "Error: Username already exists");
 
 }
