@@ -18,7 +18,7 @@ public class HomePageTests {
 	@Before
 	public void setUp() {
 		HPL = new HomePageLogic();
-        Drivers.openChromeDriver();
+        Drivers.openSafariDriver();
 		HPO = new HomePageObjects();
 		HPL.openPage(HPO.HOME_PAGE);
 

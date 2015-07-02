@@ -15,12 +15,12 @@ public class Drivers {
 		driver = new ChromeDriver();
 	}
 
-	public void onpenFireFoxDriver() {
+	public static void onpenFireFoxDriver() {
 
 		driver = new FirefoxDriver();
 	}
 
-	public void openSafariDriver() {
+	public static void openSafariDriver() {
 		
 		driver = new SafariDriver();
 	}

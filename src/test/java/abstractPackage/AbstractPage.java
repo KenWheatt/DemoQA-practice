@@ -16,20 +16,15 @@ import util.Drivers;
 
 public class AbstractPage {
 
-	
-
 	public AbstractPage() {
 	}
 
 	HomePageObjects Home;
 
-	
-
 	public void openPage(String Url) {
 		Drivers.driver.get(Url);
 
 	}
-	
 
 	public void clickOn(By locator) {
 		Drivers.driver.findElement(locator).click();
@@ -65,10 +60,10 @@ public class AbstractPage {
 	public void implicitWait() {
 		Drivers.driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 	}
-	
-	public void waitForElementToBeVisible(By locator){
-		WebDriverWait wait = new WebDriverWait(Drivers.driver,10);
-		 wait.until(ExpectedConditions.elementToBeClickable(locator));
+
+	public void waitForElementToBeVisible(By locator) {
+		WebDriverWait wait = new WebDriverWait(Drivers.driver, 10);
+		wait.until(ExpectedConditions.elementToBeClickable(locator));
 	}
 
 	public void badWait() throws InterruptedException {
@@ -88,7 +83,11 @@ public class AbstractPage {
 		return false;
 	}
 
-	public void closeThisPage() {
+	public void closePageinFocus() {
 		Drivers.driver.close();
+	}
+
+	public void closeThisPage() {
+		Drivers.driver.quit();
 	}
 }
