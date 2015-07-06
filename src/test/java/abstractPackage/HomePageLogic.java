@@ -30,14 +30,7 @@ public class HomePageLogic extends AbstractPage {
 		}
 		return false;
 	}
-//	public void thisGlyphgoesActive(By locator){
-//		implicitWait();
-//		Actions action = new Actions(driver);
-//		WebElement we = driver.findElement(locator);
-//		action.moveToElement(we);
-//		WebDriverWait wait=new WebDriverWait(driver,10);
-//		
-//		wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector());
+
 		
 		
 	}

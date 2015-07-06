@@ -11,7 +11,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import pageObjects.HomePageObjects;
 import util.Drivers;
 
 public class AbstractPage {
@@ -19,7 +18,9 @@ public class AbstractPage {
 	public AbstractPage() {
 	}
 
-	HomePageObjects Home;
+	
+	
+
 
 	public void openPage(String Url) {
 		Drivers.driver.get(Url);
