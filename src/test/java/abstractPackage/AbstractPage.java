@@ -30,21 +30,21 @@ public class AbstractPage {
 		Drivers.driver.findElement(locator).click();
 	}
 
-	protected String getURL() {
+	public String getURL() {
 		String URL = Drivers.driver.getCurrentUrl();
 		return URL;
 	}
 
-	protected void type(By locator, String input) {
+	public void type(By locator, String input) {
 		Drivers.driver.findElement(locator).sendKeys(input);
 	}
 
-	protected void selectDropdown(By locator, String value) {
+	public void selectDropdown(By locator, String value) {
 		Select selectDrop = new Select(Drivers.driver.findElement(locator));
 		selectDrop.selectByValue(value);
 	}
 
-	protected void goToPage(By locator, String url) {
+	public void goToPage(By locator, String url) {
 		clickOn(locator);
 		assertEquals(getURL(), url);
 	}

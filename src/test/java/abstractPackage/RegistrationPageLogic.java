@@ -8,14 +8,15 @@ import pageObjects.RegistrationPageObjects;
 import util.Drivers;
 
 public class RegistrationPageLogic extends AbstractPage{
-	public RegistrationPageLogic(){}
+	public RegistrationPageLogic(){
+}
 	HomePageObjects HPO;
 	RegistrationPageObjects RPO;
+	
 	public void getRegistrationPage(){
-		goToPage(HPO.REGISTRATION_LINK, "http://demoqa.com/registration/");
+		
 	}
 	public void verifyPasswordStrengthBar(String input, String strength) throws InterruptedException {
-		getRegistrationPage();
 		type(RPO.PASSWORD_INPUT, input);
 		badWait();
 		type(RPO.CONFIRM_PASSWORD_INPUT, input);
