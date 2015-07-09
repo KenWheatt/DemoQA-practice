@@ -18,7 +18,7 @@ public class HomePageObjects {
 
 	public final By NAVBAR_DROPDOWN_DRAGGABLE_LINK = By.id("menu-item-73");
 
-	public final By NAVBAR_DROPDOWN_TABS_LINK = By.id("menu-item-153");
+	public final By NAVBAR_DROPDOWN_TABS_LINK = By.id("menu-item-73");
 
 	public final By NAVBAR_BLOG_LINK = By.id("menu-item-65");
 

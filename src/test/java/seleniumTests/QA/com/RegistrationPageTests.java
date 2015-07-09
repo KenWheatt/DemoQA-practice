@@ -7,165 +7,176 @@ import org.junit.Before;
 import org.junit.Test;
 
 import pageObjects.RegistrationPageObjects;
+import supportingObjects.Registration;
 import util.Drivers;
 import abstractPackage.RegistrationPageLogic;
 
 public class RegistrationPageTests {
 	protected RegistrationPageLogic RPL;
-	protected RegistrationPageObjects RPO;
 
 	@Before
 	public void setUp() {
 		Drivers.openSafariDriver();
 		RPL = new RegistrationPageLogic();
-		RPO = new RegistrationPageObjects();
-		RPL.openPage(RPO.REGISTRATION_URL);
+		RPL.openPage(RegistrationPageObjects.REGISTRATION_URL);
 
 	}
 
 	@Test
 	public void isFirstNameInputVisible() {
-		assertTrue(RPL.isElementvisible(RPO.FIRST_NAME_INPUT));
+		assertTrue(RPL
+				.isElementvisible(RegistrationPageObjects.FIRST_NAME_INPUT));
 	}
 
 	@Test
 	public void isLastNameInputVisible() {
-		assertTrue(RPL.isElementvisible(RPO.LAST_NAME_INPUT));
+		assertTrue(RPL
+				.isElementvisible(RegistrationPageObjects.LAST_NAME_INPUT));
 	}
 
 	@Test
 	public void isMarritalStatusButtonVisible() {
-		assertTrue(RPL.isElementvisible(RPO.MARITAL_STATUS_BUTTON));
+		assertTrue(RPL
+				.isElementvisible(RegistrationPageObjects.MARITAL_STATUS_BUTTON));
 	}
 
 	@Test
 	public void isHobbyButtonVisible() {
-		assertTrue(RPL.isElementvisible(RPO.HOBBY_BUTTON));
+		assertTrue(RPL.isElementvisible(RegistrationPageObjects.HOBBY_BUTTON));
 	}
 
 	@Test
 	public void isCountryDropdownVisible() {
-		assertTrue(RPL.isElementvisible(RPO.COUNTRY));
+		assertTrue(RPL.isElementvisible(RegistrationPageObjects.COUNTRY));
 	}
 
 	@Test
 	public void isMonthDropdownVisible() {
-		assertTrue(RPL.isElementvisible(RPO.MONTH));
+		assertTrue(RPL.isElementvisible(RegistrationPageObjects.MONTH));
 	}
 
 	@Test
 	public void isDayDropdownVisible() {
-		assertTrue(RPL.isElementvisible(RPO.DAY));
+		assertTrue(RPL.isElementvisible(RegistrationPageObjects.DAY));
 	}
 
 	@Test
 	public void isYearDropdownVisible() {
-		assertTrue(RPL.isElementvisible(RPO.YEAR));
+		assertTrue(RPL.isElementvisible(RegistrationPageObjects.YEAR));
 	}
 
 	@Test
 	public void isPhoneNumberInputVisible() {
-		assertTrue(RPL.isElementvisible(RPO.PHONE_NUMBER));
+		assertTrue(RPL.isElementvisible(RegistrationPageObjects.PHONE_NUMBER));
 	}
 
 	@Test
 	public void isUserNameInputVisible() {
-		assertTrue(RPL.isElementvisible(RPO.USER_NAME));
+		assertTrue(RPL.isElementvisible(RegistrationPageObjects.USER_NAME));
 	}
 
 	@Test
 	public void isEmailInputVisible() {
-		assertTrue(RPL.isElementvisible(RPO.EMAIL));
+		assertTrue(RPL.isElementvisible(RegistrationPageObjects.EMAIL));
 	}
 
 	@Test
 	public void isDescriptionInputVisible() {
-		assertTrue(RPL.isElementvisible(RPO.DESCRIPTION));
+		assertTrue(RPL.isElementvisible(RegistrationPageObjects.DESCRIPTION));
 	}
 
 	@Test
 	public void isPasswordInputVisible() {
-		assertTrue(RPL.isElementvisible(RPO.PASSWORD_INPUT));
+		assertTrue(RPL.isElementvisible(RegistrationPageObjects.PASSWORD_INPUT));
 	}
 
 	@Test
 	public void isConfirmPasswordInputVisible() {
-		assertTrue(RPL.isElementvisible(RPO.CONFIRM_PASSWORD_INPUT));
+		assertTrue(RPL
+				.isElementvisible(RegistrationPageObjects.CONFIRM_PASSWORD_INPUT));
 	}
 
 	@Test
 	public void isSubmitButtonVisible() {
-		assertTrue(RPL.isElementvisible(RPO.SUBMIT_REGISTRATION));
+		assertTrue(RPL
+				.isElementvisible(RegistrationPageObjects.SUBMIT_REGISTRATION));
 	}
 
 	@Test
 	public void isRegistrationButtonClickable() {
-		assertTrue(RPL.isLinkClickable(RPO.SUBMIT_REGISTRATION));
+		assertTrue(RPL
+				.isLinkClickable(RegistrationPageObjects.SUBMIT_REGISTRATION));
 	}
 
 	@Test
 	public void tryRegisteringAknownUser() {
-		RPL.register(
-				RPO.FIRST_NAME_INPUT, "Dev", 
-				RPO.LAST_NAME_INPUT, "User",
-				RPO.MARITAL_STATUS_BUTTON, 
-				RPO.HOBBY_BUTTON, 
-				RPO.COUNTRY,"United States", 
-				RPO.DAY, "25", 
-				RPO.YEAR, "1989",
-				RPO.PHONE_NUMBER, "5035551285", 
-				RPO.USER_NAME, "Dev1",
-				RPO.EMAIL, "BRRRRATTT@catalystitservices.com", 
-				RPO.DESCRIPTION,"All the Stuffs you needs to know breh!", 
-				RPO.PASSWORD_INPUT,"Workforfood33@!", 
-				RPO.CONFIRM_PASSWORD_INPUT,"Workforfood33@!", 
-				RPO.SUBMIT_REGISTRATION
-				);
+		Registration registration = registrationWithDefaultValidValues();
+		RPL.register(registration);
+	}
+
+	@Test
+	public void tryRegisteringAknownUserWhenConfirmPasswordDoesNotMatch() {
+		Registration registration = registrationWithDefaultValidValues();
+		registration.setConfirmpassword("Something Else");
+		RPL.register(registration);
+		// assert correct error message appears or something
 	}
 
 	@Test
 	public void passwordStrengthVeryWeak() throws InterruptedException {
-		RPL.verifyPasswordStrengthBar(
-				RPO.PASSWORD_INPUT,
-				RPO.CONFIRM_PASSWORD_INPUT, 
-				RPO.VERY_WEAK_PASSWORD,
-				RPO.VERY_WEAK_STRENGTH
-				 );
-		
+		RPL.verifyPasswordStrengthBar(RegistrationPageObjects.PASSWORD_INPUT,
+				RegistrationPageObjects.CONFIRM_PASSWORD_INPUT,
+				RegistrationPageObjects.VERY_WEAK_PASSWORD,
+				RegistrationPageObjects.VERY_WEAK_STRENGTH);
+
 	}
+
 	@Test
 	public void passwordStrengthWeak() throws InterruptedException {
-		RPL.verifyPasswordStrengthBar(
-				RPO.PASSWORD_INPUT,
-				RPO.CONFIRM_PASSWORD_INPUT, 
-				RPO.WEAK_PASSWORD,
-				RPO.WEAK_STRENGTH
-				 );
-		
+		RPL.verifyPasswordStrengthBar(RegistrationPageObjects.PASSWORD_INPUT,
+				RegistrationPageObjects.CONFIRM_PASSWORD_INPUT,
+				RegistrationPageObjects.WEAK_PASSWORD,
+				RegistrationPageObjects.WEAK_STRENGTH);
+
 	}
+
 	@Test
 	public void passwordStrengthMedium() throws InterruptedException {
-		RPL.verifyPasswordStrengthBar(
-				RPO.PASSWORD_INPUT,
-				RPO.CONFIRM_PASSWORD_INPUT, 
-				RPO.MEDIUM_PASSWORD,
-				RPO.MEDIUM_STRENGTH
-				 );
-		
+		RPL.verifyPasswordStrengthBar(RegistrationPageObjects.PASSWORD_INPUT,
+				RegistrationPageObjects.CONFIRM_PASSWORD_INPUT,
+				RegistrationPageObjects.MEDIUM_PASSWORD,
+				RegistrationPageObjects.MEDIUM_STRENGTH);
+
 	}
+
 	@Test
 	public void passwordStrengthStrong() throws InterruptedException {
-		RPL.verifyPasswordStrengthBar(
-				RPO.PASSWORD_INPUT,
-				RPO.CONFIRM_PASSWORD_INPUT, 
-				RPO.STRONG_PASSWORD,
-				RPO.STRONG_STRENGTH
-				 );
-		
+		RPL.verifyPasswordStrengthBar(RegistrationPageObjects.PASSWORD_INPUT,
+				RegistrationPageObjects.CONFIRM_PASSWORD_INPUT,
+				RegistrationPageObjects.STRONG_PASSWORD,
+				RegistrationPageObjects.STRONG_STRENGTH);
+
 	}
 
 	@After
 	public void closeShop() {
 		RPL.closeThisPage();
+	}
+
+	private Registration registrationWithDefaultValidValues() {
+		Registration registration = new Registration();
+		registration.setFirstname("Dev");
+		// "User",
+		// "United States",
+		// "25",
+		// "1989",
+		// "5035551285",
+		// "Dev1",
+		// "BRRRRATTT@catalystitservices.com",
+		// "All the Stuffs you needs to know breh!",
+		// "Workforfood33@!",
+		// "Workforfood33@!"
+		RPL.register(registration);
+		return registration;
 	}
 }
